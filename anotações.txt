@@ -1,0 +1,1 @@
+estudar conceitos de api rest e de api restfull dentro do conceito de banco de dados
