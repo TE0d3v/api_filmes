@@ -19,7 +19,7 @@ async function getFilmeById(req, res) {
 
         return res.status(200).send(filme)
     } catch (error) {
-        return res.status(400).send("Erro ao buscar filme pelo ID")
+        return res.status(400).send("Erro ao buscar Filme")
     }
 }
 
@@ -34,9 +34,21 @@ async function insertFilmes(req, res) {
         return res.status(400).send("Erro ao inserir filme")
     }
 }
+
+async function deleteFilme(req, res) {
+    const { id } = req.params
+
+    try{
+        const filme = await modelFilmes.deleteFilme(id)
+        return res.status(200).send(filme)
+    }catch{
+        return res.status(400).send("Erro ao deletar filme")
+    }
+}
 // n á a necessidade de validações simples passarem pelo model para isso é utilizado os middleware
 module.exports = {
     getFilmes,
     insertFilmes,
-    getFilmeById
+    getFilmeById,
+    deleteFilme
 }
